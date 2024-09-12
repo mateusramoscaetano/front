@@ -1,7 +1,3 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export type PendingGoalsResponse = {
   id: string;
   title: string;
@@ -10,7 +6,7 @@ export type PendingGoalsResponse = {
 }[];
 
 export async function getPendingGoals(): Promise<PendingGoalsResponse> {
-  const response = await fetch(`${process.env.SERVER_URL}/pending-goals`);
+  const response = await fetch("https://back-bbu1.onrender.com/pending-goals");
   const data = await response.json();
   return data.pendingGoals;
 }

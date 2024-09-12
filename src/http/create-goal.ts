@@ -1,7 +1,3 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
 interface CreateGoalRequest {
   title: string;
   desiredWeeklyFrequency: number;
@@ -11,7 +7,7 @@ export async function createGoal({
   title,
   desiredWeeklyFrequency,
 }: CreateGoalRequest) {
-  await fetch(`${process.env.SERVER_URL}/goals`, {
+  await fetch("https://back-bbu1.onrender.com/goals", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
