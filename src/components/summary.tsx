@@ -7,10 +7,10 @@ import { Separator } from "./ui/separator";
 import { useQuery } from "@tanstack/react-query";
 import { getSummary } from "../http/get-summary";
 import dayjs from "dayjs";
-import "dayjs/locale/pt-BR";
+import "dayjs/locale/pt-br";
 import { PendingGoals } from "./pending-goals";
 
-dayjs.locale("br");
+dayjs.locale("pt-br");
 
 export function Summary() {
   const { data } = useQuery({
