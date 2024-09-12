@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export type SummaryResponse = {
   completed: number;
   total: number;

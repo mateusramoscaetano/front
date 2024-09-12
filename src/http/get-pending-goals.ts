@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export type PendingGoalsResponse = {
   id: string;
   title: string;

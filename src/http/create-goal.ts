@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 interface CreateGoalRequest {
   title: string;
   desiredWeeklyFrequency: number;
