@@ -65,7 +65,7 @@ export function CreateGoal() {
 
         <form
           onSubmit={handleSubmit(handleCreateGoal)}
-          className="flex-1 flex flex-col justify-between"
+          className="h-full flex flex-col justify-between"
         >
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
