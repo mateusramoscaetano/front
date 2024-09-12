@@ -23,8 +23,8 @@ export function Summary() {
     return null;
   }
 
-  const firstDayOfWeek = dayjs().startOf("week").format("D MMM");
-  const lastDayOfWeek = dayjs().endOf("week").format("D MMM");
+  const firstDayOfWeek = dayjs().locale("br").startOf("week").format("D MMM");
+  const lastDayOfWeek = dayjs().locale("br").endOf("week").format("D MMM");
 
   const completedPercentage = Math.round((data.completed * 100) / data.total);
 
