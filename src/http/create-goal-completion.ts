@@ -1,5 +1,5 @@
 export async function createGoalCompletion(goalId: string) {
-  await fetch("http://localhost:3333/completions", {
+  await fetch(`${process.env.SERVER_URL}/completions`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
