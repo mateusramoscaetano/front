@@ -18,6 +18,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createGoal } from "../http/create-goal";
 import { useQueryClient } from "@tanstack/react-query";
+import { useRef } from "react";
 
 const createGoalForm = z.object({
   title: z.string().min(1, "Informe a atividade que deseja realizar"),
@@ -28,6 +29,8 @@ type CreateGoalForm = z.infer<typeof createGoalForm>;
 
 export function CreateGoal() {
   const queryClient = useQueryClient();
+
+  const closeDialogRef = useRef<HTMLButtonElement | null>(null);
 
   const { register, control, handleSubmit, formState, reset } =
     useForm<CreateGoalForm>({
@@ -44,6 +47,10 @@ export function CreateGoal() {
     queryClient.invalidateQueries({ queryKey: ["pending-goals"] });
 
     reset();
+
+    if (closeDialogRef.current) {
+      closeDialogRef.current.click();
+    }
   }
 
   return (
@@ -163,7 +170,12 @@ export function CreateGoal() {
                 Fechar
               </Button>
             </DialogClose>
-            <Button className="flex-1">Salvar</Button>
+            <Button type="submit" className="flex-1">
+              Salvar
+            </Button>
+            <DialogClose asChild>
+              <button ref={closeDialogRef} className="hidden" />
+            </DialogClose>
           </div>
         </form>
       </div>
